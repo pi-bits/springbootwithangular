@@ -2,19 +2,40 @@
 
 2. Run "npm install" in the angular-app - this can be git submodule as well.
 
-3. Change the output path in the angular.json to public
+3. Change the output path in the angular.json to public for the build phase.
 
-"options": {
-            "outputPath": "../../public",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ]
-            }
+		{
+		  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+		  "version": 1,
+		  "newProjectRoot": "projects",
+		  "projects": {
+		    "angular-app": {
+		      "root": "",
+		      "sourceRoot": "src",
+		      "projectType": "application",
+		      "prefix": "app",
+		      "schematics": {},
+		      "architect": {
+			"build": {
+			  "builder": "@angular-devkit/build-angular:browser",
+			  "options": {
+			    "outputPath": "../../public",
+			    "index": "src/index.html",
+			    "main": "src/main.ts",
+			    "polyfills": "src/polyfills.ts",
+			    "tsConfig": "src/tsconfig.app.json",
+			    "assets": [
+			      "src/favicon.ico",
+			      "src/assets"
+			    ],
+			    "styles": [
+			      "src/styles.css"
+			    ],
+			    "scripts": []
+			  }
+
+		}
+
 4. Add maven plugin exec-maven-plugin before building the Spring boot application (i.e validate phase) to "run ng build"
 5. In the plugin configuration set working directory(workingDirectory) to   src/main/resources/front-end/angular-app
 
