@@ -1,0 +1,3 @@
+[submodule "src/main/resources/angular-app"]
+	path = src/main/resources/angular-app
+	url = git@github.com:prashantdnaik/angular-app.git
