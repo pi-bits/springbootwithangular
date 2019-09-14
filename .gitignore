@@ -3,6 +3,7 @@ target/
 !**/src/main/**
 !**/src/test/**
 **/.mvn/**
+**/src/main/resources/public/**
 ### STS ###
 .apt_generated
 .classpath
@@ -11,7 +12,8 @@ target/
 .settings
 .springBeans
 .sts4-cache
-
+.DS_Store
+**/.DS_Store
 ### IntelliJ IDEA ###
 .idea
 *.iws
